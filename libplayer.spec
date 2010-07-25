@@ -64,7 +64,7 @@ This package contains the headers required for compiling software that uses
 the libplayer library.
 
 %prep
-%setup -q -n %{name}
+%setup -q -n %{name}-%{version}
 
 %build
 %setup_compile_flags
