@@ -1,10 +1,10 @@
-%define major 1
+%define major 2
 %define libname %mklibname player %{major}
 %define develname %mklibname player -d
 
 Name: libplayer
 Version: 1.0.0
-Release: %mkrel 1
+Release: %mkrel 1.20100724.1
 URL: http://libplayer.geexbox.org/
 Source:	http://libplayer.geexbox.org/releases/%{name}-%{version}.tar.bz2
 License: LGPLv2+
@@ -14,7 +14,6 @@ BuildRequires: libxine-devel
 BuildRequires: vlc-devel
 Buildrequires: mplayer
 BuildRequires: libgstreamer-devel
-BuildRequires: python-devel
 BuildRequires: libx11-devel
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 
@@ -50,18 +49,6 @@ libplayer provides a generic A/V API that relies on various multimedia
 player for Linux systems. It currently supports MPlayer, xine VLC and
 GStreamer only.
 
-%package -n python-%{name}
-Summary: A multimedia A/V abstraction layer API - python binding
-Group: System/Libraries
-Requires: %{libname} = %{version}
-
-%description -n python-%{name}
-libplayer provides a generic A/V API that relies on various multimedia
-player for Linux systems. It currently supports MPlayer, xine VLC and
-GStreamer only.
-
-This package contains python binding for libplayer.
-
 %package -n %{develname}
 Summary: A multimedia A/V abstraction layer API
 Group: System/Libraries
@@ -77,7 +64,7 @@ This package contains the headers required for compiling software that uses
 the libplayer library.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q -n %{name}
 
 %build
 %setup_compile_flags
@@ -104,14 +91,11 @@ rm -rf %{buildroot}
 %files test
 %defattr(-,root,root)
 %{_bindir}/*
+%{_mandir}/man1/*
 
 %files -n %{libname}
 %defattr(-,root,root)
 %{_libdir}/*.so.%{major}*
-
-%files -n python-%{name}
-%defattr(-,root,root)
-%py_platsitedir/*
 
 %files -n %{develname}
 %defattr(-,root,root)
