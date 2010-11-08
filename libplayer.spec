@@ -3,8 +3,8 @@
 %define develname %mklibname player -d
 
 Name: libplayer
-Version: 2.0.0
-Release: %mkrel 0.20100724.1
+Version: 2.0.1
+Release: %mkrel 1
 URL: http://libplayer.geexbox.org/
 Source:	http://libplayer.geexbox.org/releases/%{name}-%{version}.tar.bz2
 License: LGPLv2+
